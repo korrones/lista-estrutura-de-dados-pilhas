@@ -13,17 +13,17 @@ public class EditorTexto {
 
     public void inserirTexto(String novoTexto) {
         if (!textoAtual.equals(novoTexto)) {
-            pilhaDesfazer.empilhar(textoAtual); // salva estado anterior
+            pilhaDesfazer.empilhar(textoAtual); 
             textoAtual = novoTexto;
-            pilhaRefazer.limpar(); // limpa refazer
+            pilhaRefazer.limpar(); 
             System.out.println("Texto atualizado: " + textoAtual);
         }
     }
 
     public void desfazer() {
         if (!pilhaDesfazer.estaVazia()) {
-            pilhaRefazer.empilhar(textoAtual); // salva estado atual
-            textoAtual = pilhaDesfazer.desempilhar(); // volta ao anterior
+            pilhaRefazer.empilhar(textoAtual); 
+            textoAtual = pilhaDesfazer.desempilhar();
             System.out.println("Desfeito! Texto atual: " + textoAtual);
         } else {
             System.out.println("Nada para desfazer.");
@@ -32,8 +32,8 @@ public class EditorTexto {
 
     public void refazer() {
         if (!pilhaRefazer.estaVazia()) {
-            pilhaDesfazer.empilhar(textoAtual); // salva estado atual
-            textoAtual = pilhaRefazer.desempilhar(); // refaz
+            pilhaDesfazer.empilhar(textoAtual); 
+            textoAtual = pilhaRefazer.desempilhar(); 
             System.out.println("Refeito! Texto atual: " + textoAtual);
         } else {
             System.out.println("Nada para refazer.");
